@@ -1,4 +1,8 @@
-import './globals.css'
+"use client";
+import { ChakraProvider } from "@chakra-ui/react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import theme from "@/theme";
 
 export default function RootLayout({ children }) {
   return (
@@ -8,7 +12,13 @@ export default function RootLayout({ children }) {
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body>
+        <ChakraProvider theme={theme}>
+          <Navbar />
+          {children}
+          <Footer />
+        </ChakraProvider>
+      </body>
     </html>
-  )
+  );
 }
