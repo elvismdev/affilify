@@ -1,16 +1,8 @@
-import {
-  Flex,
-  Box,
-  useColorModeValue,
-  VStack,
-  Heading,
-  Text,
-} from "@chakra-ui/react";
+import { Flex, Box, useColorModeValue, Heading, Text } from "@chakra-ui/react";
 
 export default function HeadingSection() {
   return (
     <Flex
-      bg={useColorModeValue("gray.100", "gray.900")}
       align="center"
       justify="center"
       bg={useColorModeValue("gray.50", "gray.800")}
