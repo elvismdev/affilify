@@ -73,7 +73,7 @@ export default function GeneratorSection() {
 
               // remove this code and implement your submit logic right here
               setTimeout(() => {
-                if (amzProdUrl === "fail@example.com") {
+                if (amzProdUrl === "https://www.google.com") {
                   setError(true);
                   setState("initial");
                   return;
@@ -122,40 +122,38 @@ export default function GeneratorSection() {
               </Button>
             </FormControl>
           </Stack>
-          <Text
-            mt={6}
-            textAlign={"center"}
-            color={error ? "red.500" : "gray.500"}
-          >
-            {error ? (
-              "Oh no an error occured! 😢 Please try again later."
-            ) : state === "success" ? (
-              <Alert
-                status="success"
-                variant="subtle"
-                flexDirection="column"
-                alignItems="center"
-                justifyContent="center"
-                textAlign="center"
-                borderRadius="lg"
-              >
-                <ExternalLinkIcon boxSize="40px" mr={0} />
-                {/* <AlertIcon boxSize="40px" mr={0} /> */}
-                <AlertTitle mr={0} mt={4} mb={1} fontSize="lg">
-                  Follow this link to buy!
-                </AlertTitle>
-                <AlertDescription maxWidth="100%">
-                  <Link
-                    textDecoration={"underline"}
-                    href={amzProdUrl}
-                    isExternal
-                  >
-                    {amzProdUrl}
-                  </Link>
-                </AlertDescription>
-              </Alert>
-            ) : null}
-          </Text>
+          {error ? (
+            <Text
+              mt={6}
+              textAlign={"center"}
+              color={error ? "red.500" : "gray.500"}
+            >
+              Oh no an error occured! 😢 Please try again later.
+            </Text>
+          ) : state === "success" ? (
+            <Alert
+              mt={6}
+              status="success"
+              variant="subtle"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="center"
+              textAlign="center"
+              borderRadius="lg"
+              color={"gray.500"}
+            >
+              <ExternalLinkIcon boxSize="40px" mr={0} />
+              {/* <AlertIcon boxSize="40px" mr={0} /> */}
+              <AlertTitle mr={0} mt={4} mb={1} fontSize="lg">
+                Follow this link to buy!
+              </AlertTitle>
+              <AlertDescription maxWidth="100%">
+                <Link textDecoration={"underline"} href={amzProdUrl} isExternal>
+                  {amzProdUrl}
+                </Link>
+              </AlertDescription>
+            </Alert>
+          ) : null}
         </Container>
       </Flex>
       <Flex
