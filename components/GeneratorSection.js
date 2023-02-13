@@ -144,7 +144,7 @@ export default function GeneratorSection() {
                 <AlertTitle mr={0} mt={4} mb={1} fontSize="lg">
                   Follow this link to buy!
                 </AlertTitle>
-                <AlertDescription maxWidth="sm">
+                <AlertDescription maxWidth="100%">
                   <Link
                     textDecoration={"underline"}
                     href={amzProdUrl}
