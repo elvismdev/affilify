@@ -15,16 +15,37 @@ import {
   Alert,
   AlertTitle,
   AlertDescription,
-  Box,
 } from "@chakra-ui/react";
 import { CheckIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { TbHeartHandshake } from "react-icons/tb";
 import { RiNumber1, RiNumber2, RiNumber3 } from "react-icons/ri";
+import Affiliate from "affiliate";
+import AffiliatePluginAmazon from "affiliate-plugin-amazon";
 
 export default function GeneratorSection() {
   const [amzProdUrl, setAmzProdUrl] = useState("");
   const [state, setState] = useState("initial");
   const [error, setError] = useState(false);
+
+  const amazonAff = AffiliatePluginAmazon(Affiliate, {
+    tags: {
+      us: "amzapplink-20", // for USA, required
+      gb: "", // for UK
+      de: "", // for Germany
+      fr: "", // for France
+      jp: "", // for Japan
+      ca: "", // for Canada
+      cn: "", // for China
+      it: "", // for Italy
+      es: "", // for Spain
+      in: "", // for India
+      br: "", // for Brazil
+      mx: "", // for Mexico
+    },
+    debug: false, // verbose logging into the console, default off
+    locale: null, // manually set the country code of the browser, default automatic
+    modifyDomain: true, // modify domains like amazon.com to amazon.co.uk based on locale, default on
+  });
 
   return (
     <>
@@ -78,6 +99,9 @@ export default function GeneratorSection() {
                   setState("initial");
                   return;
                 }
+
+                // Testing convert function.
+                console.log(amazonAff.convert("https://www.amazon.com"));
 
                 setState("success");
               }, 100);
@@ -143,7 +167,6 @@ export default function GeneratorSection() {
               color={"gray.500"}
             >
               <ExternalLinkIcon boxSize="40px" mr={0} />
-              {/* <AlertIcon boxSize="40px" mr={0} /> */}
               <AlertTitle mr={0} mt={4} mb={1} fontSize="lg">
                 Follow this link to buy!
               </AlertTitle>
