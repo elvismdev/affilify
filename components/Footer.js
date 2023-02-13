@@ -5,9 +5,14 @@ import {
   Text,
   useColorModeValue,
   Image,
+  Link,
 } from "@chakra-ui/react";
 
 export default function Footer() {
+  const currentYear = () => {
+    return new Date().getFullYear();
+  };
+
   return (
     <Box
       bg={useColorModeValue("gray.50", "gray.900")}
@@ -22,7 +27,17 @@ export default function Footer() {
         justify={{ base: "center", md: "space-between" }}
         align={{ base: "center", md: "center" }}
       >
-        <Text>© 2022 Chakra Templates. All rights reserved</Text>
+        <Text>
+          Copyright © {currentYear()} by{" "}
+          <Link
+            textDecoration={"underline"}
+            href={"https://elvismdev.io"}
+            isExternal
+          >
+            Elvis Morales
+          </Link>
+          . All rights reserved.
+        </Text>
         <Stack direction={"row"} spacing={6}>
           <Image
             width="100px"
