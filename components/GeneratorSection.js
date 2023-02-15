@@ -62,27 +62,6 @@ export default function GeneratorSection() {
           p={6}
           direction={"column"}
         >
-          <List textAlign={"center"} mb={5} color={"gray.500"}>
-            <ListItem>
-              <ListIcon mr={0} as={RiNumber1} color="green.500" />
-              <br />
-              Paste the product URL.
-            </ListItem>
-            <ListItem>
-              <ListIcon mr={0} as={RiNumber2} color="green.500" />
-              <br />
-              Click <b>Affilify</b>.
-            </ListItem>
-            <ListItem>
-              <ListIcon mr={0} as={RiNumber3} color="green.500" />
-              <br />
-              Use the new link.
-            </ListItem>
-          </List>
-          <Text textAlign={"center"} mb={5} color={"gray.500"}>
-            I may receive a small commission from Amazon with no extra cost to
-            you!
-          </Text>
           <Stack
             direction={{ base: "column", md: "row" }}
             as={"form"}
@@ -177,6 +156,27 @@ export default function GeneratorSection() {
               </AlertDescription>
             </Alert>
           ) : null}
+          <List textAlign={"center"} mb={5} mt={5} color={"gray.500"}>
+            <ListItem>
+              <ListIcon mr={0} as={RiNumber1} color="green.500" />
+              <br />
+              Paste the product URL.
+            </ListItem>
+            <ListItem>
+              <ListIcon mr={0} as={RiNumber2} color="green.500" />
+              <br />
+              Click <b>Affilify</b>.
+            </ListItem>
+            <ListItem>
+              <ListIcon mr={0} as={RiNumber3} color="green.500" />
+              <br />
+              Use the new link.
+            </ListItem>
+          </List>
+          <Text textAlign={"center"} mb={5} color={"gray.500"}>
+            I may receive a small commission from Amazon with no extra cost to
+            you!
+          </Text>
         </Container>
       </Flex>
       <Flex
