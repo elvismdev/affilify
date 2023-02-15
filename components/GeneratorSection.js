@@ -19,33 +19,12 @@ import {
 import { CheckIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { TbHeartHandshake } from "react-icons/tb";
 import { RiNumber1, RiNumber2, RiNumber3 } from "react-icons/ri";
-import Affiliate from "affiliate";
-import AffiliatePluginAmazon from "affiliate-plugin-amazon";
+import amazonlink from "ezamazonaffiliate";
 
 export default function GeneratorSection() {
   const [amzProdUrl, setAmzProdUrl] = useState("");
   const [state, setState] = useState("initial");
   const [error, setError] = useState(false);
-
-  const amazonAff = AffiliatePluginAmazon(Affiliate, {
-    tags: {
-      us: "amzapplink-20", // for USA, required
-      gb: "", // for UK
-      de: "", // for Germany
-      fr: "", // for France
-      jp: "", // for Japan
-      ca: "", // for Canada
-      cn: "", // for China
-      it: "", // for Italy
-      es: "", // for Spain
-      in: "", // for India
-      br: "", // for Brazil
-      mx: "", // for Mexico
-    },
-    debug: false, // verbose logging into the console, default off
-    locale: null, // manually set the country code of the browser, default automatic
-    modifyDomain: true, // modify domains like amazon.com to amazon.co.uk based on locale, default on
-  });
 
   return (
     <>
@@ -80,7 +59,7 @@ export default function GeneratorSection() {
                 }
 
                 // Testing convert function.
-                console.log(amazonAff.convert("https://www.amazon.com"));
+                setAmzProdUrl(amazonlink(amzProdUrl, "amzapplink-20"));
 
                 setState("success");
               }, 100);
