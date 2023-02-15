@@ -9,7 +9,7 @@ export default function HeadingSection() {
     >
       <Box
         borderRadius="lg"
-        m={{ base: 5, md: 16, lg: 10 }}
+        m={{ base: 5, md: 16, lg: 10, mb: 0 }}
         p={{ base: 5, lg: 16 }}
         textAlign={"center"}
       >

@@ -15,11 +15,11 @@ import {
   Alert,
   AlertTitle,
   AlertDescription,
-  Box,
 } from "@chakra-ui/react";
 import { CheckIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { TbHeartHandshake } from "react-icons/tb";
 import { RiNumber1, RiNumber2, RiNumber3 } from "react-icons/ri";
+import amazonlink from "ezamazonaffiliate";
 
 export default function GeneratorSection() {
   const [amzProdUrl, setAmzProdUrl] = useState("");
@@ -41,27 +41,6 @@ export default function GeneratorSection() {
           p={6}
           direction={"column"}
         >
-          <List textAlign={"center"} mb={5} color={"gray.500"}>
-            <ListItem>
-              <ListIcon mr={0} as={RiNumber1} color="green.500" />
-              <br />
-              Paste the product URL.
-            </ListItem>
-            <ListItem>
-              <ListIcon mr={0} as={RiNumber2} color="green.500" />
-              <br />
-              Click <b>Affilify</b>.
-            </ListItem>
-            <ListItem>
-              <ListIcon mr={0} as={RiNumber3} color="green.500" />
-              <br />
-              Use the new link.
-            </ListItem>
-          </List>
-          <Text textAlign={"center"} mb={5} color={"gray.500"}>
-            I may receive a small commission from Amazon with no extra cost to
-            you!
-          </Text>
           <Stack
             direction={{ base: "column", md: "row" }}
             as={"form"}
@@ -78,6 +57,9 @@ export default function GeneratorSection() {
                   setState("initial");
                   return;
                 }
+
+                // Testing convert function.
+                setAmzProdUrl(amazonlink(amzProdUrl, "amzapplink-20"));
 
                 setState("success");
               }, 100);
@@ -143,7 +125,6 @@ export default function GeneratorSection() {
               color={"gray.500"}
             >
               <ExternalLinkIcon boxSize="40px" mr={0} />
-              {/* <AlertIcon boxSize="40px" mr={0} /> */}
               <AlertTitle mr={0} mt={4} mb={1} fontSize="lg">
                 Follow this link to buy!
               </AlertTitle>
@@ -154,6 +135,27 @@ export default function GeneratorSection() {
               </AlertDescription>
             </Alert>
           ) : null}
+          <List textAlign={"center"} mb={5} mt={5} color={"gray.500"}>
+            <ListItem>
+              <ListIcon mr={0} as={RiNumber1} color="green.500" />
+              <br />
+              Paste the product URL.
+            </ListItem>
+            <ListItem>
+              <ListIcon mr={0} as={RiNumber2} color="green.500" />
+              <br />
+              Click <b>Affilify</b>.
+            </ListItem>
+            <ListItem>
+              <ListIcon mr={0} as={RiNumber3} color="green.500" />
+              <br />
+              Use the new link.
+            </ListItem>
+          </List>
+          <Text textAlign={"center"} mb={5} color={"gray.500"}>
+            I may receive a small commission from Amazon with no extra cost to
+            you!
+          </Text>
         </Container>
       </Flex>
       <Flex
