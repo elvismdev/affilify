@@ -59,7 +59,12 @@ export default function GeneratorSection() {
                 }
 
                 // Testing convert function.
-                setAmzProdUrl(amazonlink(amzProdUrl, "amzapplink-20"));
+                setAmzProdUrl(
+                  amazonlink(
+                    amzProdUrl,
+                    process.env.NEXT_PUBLIC_AMZ_TRACKING_ID
+                  )
+                );
 
                 setState("success");
               }, 100);
