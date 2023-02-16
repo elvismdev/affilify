@@ -15,10 +15,12 @@ import {
   Alert,
   AlertTitle,
   AlertDescription,
+  Center,
 } from "@chakra-ui/react";
 import { CheckIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { TbHeartHandshake } from "react-icons/tb";
 import { RiNumber1, RiNumber2, RiNumber3 } from "react-icons/ri";
+import { FaRegSmileBeam } from "react-icons/fa";
 import amazonlink from "ezamazonaffiliate";
 
 export default function GeneratorSection() {
@@ -157,10 +159,13 @@ export default function GeneratorSection() {
               Use the new link.
             </ListItem>
           </List>
-          <Text textAlign={"center"} mb={5} color={"gray.500"}>
+          <Text textAlign={"center"} mb={1} color={"gray.500"}>
             I may receive a small commission from Amazon with no extra cost to
             you!
           </Text>
+          <Center color={"gray.500"}>
+            <FaRegSmileBeam />
+          </Center>
         </Container>
       </Flex>
       <Flex
