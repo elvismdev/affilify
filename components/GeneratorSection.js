@@ -157,7 +157,7 @@ export default function GeneratorSection() {
               Use the new link.
             </ListItem>
           </List>
-          <Text textAlign={"center"} mb={5} color={"gray.500"}>
+          <Text textAlign={"center"} color={"gray.500"}>
             I may receive a small commission from Amazon with no extra cost to
             you!
           </Text>
