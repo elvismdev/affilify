@@ -8,6 +8,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import Link from "next/link";
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -17,7 +18,7 @@ export default function Nav() {
         <Container as={Stack} maxW={"6xl"}>
           <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
             <Box fontWeight={"700"} fontSize={"2xl"}>
-              Affilify
+              <Link href="/">Affilify.me</Link>
             </Box>
 
             <Flex alignItems={"center"}>

@@ -34,7 +34,7 @@ export default function Footer() {
             href={"https://elvismdev.io"}
             isExternal
           >
-            Elvis Morales
+            Elvis Mørales
           </Link>
           . All rights reserved.
         </Text>
