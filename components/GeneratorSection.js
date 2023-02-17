@@ -133,7 +133,7 @@ export default function GeneratorSection() {
             >
               <ExternalLinkIcon boxSize="40px" mr={0} />
               <AlertTitle mr={0} mt={4} mb={1} fontSize="lg">
-                Follow this link to buy!
+                Follow this link to your purchase!
               </AlertTitle>
               <AlertDescription maxWidth="100%">
                 <Link textDecoration={"underline"} href={amzProdUrl} isExternal>
@@ -160,7 +160,7 @@ export default function GeneratorSection() {
             </ListItem>
           </List>
           <Text textAlign={"center"} mb={1} color={"gray.500"}>
-            I may receive a small commission from Amazon with no extra cost to
+            I may receive a small commission from Amazon with NO extra cost to
             you!
           </Text>
           <Center color={"gray.500"}>
