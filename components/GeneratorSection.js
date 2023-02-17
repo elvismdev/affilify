@@ -17,9 +17,14 @@ import {
   AlertDescription,
   Center,
 } from "@chakra-ui/react";
-import { CheckIcon, ExternalLinkIcon } from "@chakra-ui/icons";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { TbHeartHandshake } from "react-icons/tb";
-import { RiNumber1, RiNumber2, RiNumber3 } from "react-icons/ri";
+import {
+  RiNumber1,
+  RiNumber2,
+  RiNumber3,
+  RiDeleteBack2Line,
+} from "react-icons/ri";
 import { FaRegSmileBeam } from "react-icons/fa";
 import amazonlink from "ezamazonaffiliate";
 
@@ -103,7 +108,7 @@ export default function GeneratorSection() {
                 type={state === "success" ? "button" : "submit"}
               >
                 {state === "success" ? (
-                  <CheckIcon />
+                  <RiDeleteBack2Line />
                 ) : (
                   <>
                     <Text mr={1}>Affilify</Text>
