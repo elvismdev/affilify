@@ -74,6 +74,7 @@ export default function GeneratorSection() {
           >
             <FormControl>
               <Input
+                boxShadow={"base"}
                 variant={"solid"}
                 borderWidth={1}
                 color={"gray.800"}
@@ -93,6 +94,7 @@ export default function GeneratorSection() {
             </FormControl>
             <FormControl w={{ base: "100%", md: "40%" }}>
               <Button
+                boxShadow={"base"}
                 colorScheme={
                   state === "success" ? "amazonGreen" : "amazonOrange"
                 }
