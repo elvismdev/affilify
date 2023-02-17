@@ -1,11 +1,17 @@
 "use client";
 import { GoogleAnalytics } from "nextjs-google-analytics";
+import { hotjar } from "react-hotjar";
+import { useEffect } from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import theme from "@/theme";
 
 export default function RootLayout({ children }) {
+  useEffect(() => {
+    hotjar.initialize(process.env.NEXT_PUBLIC_HJID, process.env.NEXT_PUBLIC_HJSV);
+  }, []);
+
   return (
     <>
       <GoogleAnalytics trackPageViews />
