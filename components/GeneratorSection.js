@@ -21,12 +21,26 @@ import { CheckIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { TbHeartHandshake } from "react-icons/tb";
 import { RiNumber1, RiNumber2, RiNumber3 } from "react-icons/ri";
 import { FaRegSmileBeam } from "react-icons/fa";
-import amazonlink from "ezamazonaffiliate";
+import Affiliate from "affiliate";
+import extractUrls from "extract-urls";
 
 export default function GeneratorSection() {
   const [amzProdUrl, setAmzProdUrl] = useState("");
   const [state, setState] = useState("initial");
   const [error, setError] = useState(false);
+
+  // Create an Affiliate instance.
+  const aff = Affiliate.create({
+    log: false,
+    tags: [
+      {
+        hosts: ["amazon.com", "www.amazon.com", "a.co"],
+        query: {
+          tag: process.env.NEXT_PUBLIC_AMZ_TRACKING_ID,
+        },
+      },
+    ],
+  });
 
   return (
     <>
@@ -60,13 +74,18 @@ export default function GeneratorSection() {
                   return;
                 }
 
+                // Extract URLs from provided text.
+                const urls = extractUrls(amzProdUrl);
+
+                // If no URLs, error and bail out.
+                if (!urls) {
+                  setError(true);
+                  setState("initial");
+                  return;
+                }
+
                 // Testing convert function.
-                setAmzProdUrl(
-                  amazonlink(
-                    amzProdUrl,
-                    process.env.NEXT_PUBLIC_AMZ_TRACKING_ID
-                  )
-                );
+                setAmzProdUrl(aff.convert(urls.shift()));
 
                 setState("success");
               }, 100);
@@ -83,7 +102,7 @@ export default function GeneratorSection() {
                 }}
                 borderColor={useColorModeValue("gray.300", "gray.700")}
                 id={"amzprodurl"}
-                type={"url"}
+                type={"text"}
                 required
                 placeholder={"Your Amazon Product URL"}
                 aria-label={"Your Amazon Product URL"}
