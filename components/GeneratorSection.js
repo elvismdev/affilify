@@ -22,6 +22,7 @@ import { TbHeartHandshake } from "react-icons/tb";
 import { RiNumber1, RiNumber2, RiNumber3 } from "react-icons/ri";
 import { FaRegSmileBeam } from "react-icons/fa";
 import Affiliate from "affiliate";
+import extractUrls from "extract-urls";
 
 export default function GeneratorSection() {
   const [amzProdUrl, setAmzProdUrl] = useState("");
@@ -73,8 +74,18 @@ export default function GeneratorSection() {
                   return;
                 }
 
+                // Extract URLs from provided text.
+                const urls = extractUrls(amzProdUrl);
+
+                // If no URLs, error and bail out.
+                if (!urls) {
+                  setError(true);
+                  setState("initial");
+                  return;
+                }
+
                 // Testing convert function.
-                setAmzProdUrl(aff.convert(amzProdUrl));
+                setAmzProdUrl(aff.convert(urls.shift()));
 
                 setState("success");
               }, 100);
@@ -91,7 +102,7 @@ export default function GeneratorSection() {
                 }}
                 borderColor={useColorModeValue("gray.300", "gray.700")}
                 id={"amzprodurl"}
-                type={"url"}
+                type={"text"}
                 required
                 placeholder={"Your Amazon Product URL"}
                 aria-label={"Your Amazon Product URL"}
