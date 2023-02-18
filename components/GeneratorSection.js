@@ -21,12 +21,25 @@ import { CheckIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { TbHeartHandshake } from "react-icons/tb";
 import { RiNumber1, RiNumber2, RiNumber3 } from "react-icons/ri";
 import { FaRegSmileBeam } from "react-icons/fa";
-import amazonlink from "ezamazonaffiliate";
+import Affiliate from "affiliate";
 
 export default function GeneratorSection() {
   const [amzProdUrl, setAmzProdUrl] = useState("");
   const [state, setState] = useState("initial");
   const [error, setError] = useState(false);
+
+  // Create an Affiliate instance.
+  const aff = Affiliate.create({
+    log: false,
+    tags: [
+      {
+        hosts: ["amazon.com", "www.amazon.com", "a.co"],
+        query: {
+          tag: process.env.NEXT_PUBLIC_AMZ_TRACKING_ID,
+        },
+      },
+    ],
+  });
 
   return (
     <>
@@ -61,12 +74,7 @@ export default function GeneratorSection() {
                 }
 
                 // Testing convert function.
-                setAmzProdUrl(
-                  amazonlink(
-                    amzProdUrl,
-                    process.env.NEXT_PUBLIC_AMZ_TRACKING_ID
-                  )
-                );
+                setAmzProdUrl(aff.convert(amzProdUrl));
 
                 setState("success");
               }, 100);
